@@ -1,13 +1,11 @@
 //components/ProductList.js
 
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProductItem from "./ProductItem";
-import { itemContext } from "../context/itemContext";
 import "../App.css";
 
-const ProductList = () => {
-	const { products } = useContext(itemContext);
-	const [sortedProducts, setSortedProducts] = useState([...products]);
+const ProductList = ({ properties }) => {
+	const [sortedProducts, setSortedProducts] = useState([...properties]);
 	// Keep a local state for sorted products
 	const [minPrice, setMinPrice] = useState(0);
 	const [maxPrice, setMaxPrice] = useState(3000);
@@ -15,8 +13,8 @@ const ProductList = () => {
 	// 'all' represents no type filter
 
 	useEffect(() => {
-		setSortedProducts([...products]);
-	}, [products]);
+		setSortedProducts([...properties]);
+	}, [properties]);
 
 	const handleSortByPrice = () => {
 		const sorted = [...sortedProducts].sort((a, b) => a.price - b.price);
@@ -24,7 +22,7 @@ const ProductList = () => {
 	};
 
 	const handleFilterByPriceRange = () => {
-		const filtered = products.filter(
+		const filtered = properties.filter(
 			(product) => product.price >= minPrice && product.price <= maxPrice
 		);
 		setSortedProducts(filtered);
@@ -33,9 +31,9 @@ const ProductList = () => {
 	const handleFilterByType = () => {
 		if (selectedType === "all") {
 			// Reset the type filter
-			setSortedProducts([...products]);
+			setSortedProducts([...properties]);
 		} else {
-			const filtered = products.filter(
+			const filtered = properties.filter(
 				(product) => product.type === selectedType
 			);
 			setSortedProducts(filtered);

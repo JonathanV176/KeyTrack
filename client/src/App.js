@@ -1,6 +1,6 @@
 // src/App.js
 import React, { useState, useEffect } from "react";
-import PropertyList from "./components/PropertyList";
+import PropertyList from "./components/ProductList";
 import AddProperty from "./components/AddProperty";
 import axios from "axios";
 import "./App.css";
