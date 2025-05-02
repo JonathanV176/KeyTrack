@@ -38,9 +38,9 @@ const App = () => {
 	};
 
 	return (
-		<div style={{}}>
+		<div style={{backgroundColor: "#939597", height: "100vh", padding: "20px"}}>
 			<h1 className="gfg" style={{ margin: "10px 10px" }}>
-				GFG
+				Keytrack
 			</h1>
 			<h1 style={{ marginTop: "10px" }}>Real Estate Management</h1>
 			<div>
