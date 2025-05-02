@@ -8,7 +8,14 @@ inject(); // Patch express in order to use async / await syntax
 
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const cors = require('cors');
+// Enable cors at the server side. 
+const cors = require('cors')
+const corsOption = {
+    origin: ['http://localhost:3000'],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+}
+
 const helmet = require('helmet');
 
 
@@ -37,7 +44,7 @@ app.use(express.urlencoded( { extended: true, limit: '10mb' } ));
 app.use(logger.dev, logger.combined);
 
 app.use(cookieParser());
-app.use(cors());
+app.use(cors(corsOption));
 app.use(helmet());
 
 // This middleware adds the json header to every response

@@ -13,7 +13,7 @@ const AddProperty = ({ onAddProperty }) => {
 
 	const handleAddProperty = () => {
 		// Submit a new property
-		axios.post('http://localhost:5000/api/properties', newProperty)
+		axios.post('http://localhost:3001/api/properties', newProperty)
 			.then(response => {
 				// Notify the parent component about the new property
 				onAddProperty(response.data);

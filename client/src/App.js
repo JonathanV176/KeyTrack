@@ -10,7 +10,7 @@ const App = () => {
 
 	useEffect(() => {
 		axios
-			.get("http://localhost:5000/api/properties")
+			.get("http://localhost:3001/api/properties")
 			.then((response) => setProperties(response.data))
 			.catch((error) => console.error(error));
 	}, []); // Empty dependency array to fetch properties once on mount
@@ -25,7 +25,7 @@ const App = () => {
 
 	const handleDeleteProperty = (propertyId) => {
 		axios
-			.delete(`http://localhost:5000/api/properties/${propertyId}`)
+			.delete(`http://localhost:3001/api/properties/${propertyId}`)
 			.then((response) => {
 				// Filter out the deleted property from the state
 				setProperties((prevProperties) =>
