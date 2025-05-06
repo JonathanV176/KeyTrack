@@ -4,13 +4,14 @@ import React, { useEffect, useState } from "react";
 import ProductItem from "./ProductItem";
 import "../App.css";
 
-const ProductList = ({ properties }) => {
+const ProductList = ({ properties, onDeleteProperty }) => {
 	const [sortedProducts, setSortedProducts] = useState([...properties]);
 	// Keep a local state for sorted products
 	const [minPrice, setMinPrice] = useState(0);
 	const [maxPrice, setMaxPrice] = useState(3000);
 	const [selectedType, setSelectedType] = useState("all");
 	// 'all' represents no type filter
+	const [expandedCard, setExpandedCard] = useState(null);
 
 	useEffect(() => {
 		setSortedProducts([...properties]);
@@ -38,6 +39,10 @@ const ProductList = ({ properties }) => {
 			);
 			setSortedProducts(filtered);
 		}
+	};
+
+	const toggleDetails = (id) => {
+		setExpandedCard(expandedCard === id ? null : id);
 	};
 
 	return (
@@ -80,7 +85,13 @@ const ProductList = ({ properties }) => {
 			</div>
 			<ul className="item-card">
 				{sortedProducts.map((product) => (
-					<ProductItem key={product._id} product={product} />
+					<ProductItem
+						key={product._id}
+						product={product}
+						onDelete={() => onDeleteProperty(product._id)}
+						showDetails={expandedCard === product._id}
+						toggleDetails={() => toggleDetails(product._id)}
+					/>
 				))}
 			</ul>
 			<div className="buy-now-btn">Buy Now</div>

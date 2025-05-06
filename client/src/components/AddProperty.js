@@ -9,6 +9,8 @@ const AddProperty = ({ onAddProperty }) => {
 		description: '',
 		image: '',
 		contact: '',
+		price: '',
+		type: ''
 	});
 
 	const handleAddProperty = () => {
@@ -24,6 +26,8 @@ const AddProperty = ({ onAddProperty }) => {
 					description: '',
 					image: '',
 					contact: '',
+					price: '',
+					type: ''
 				});
 			})
 			.catch(error => console.error(error));
@@ -82,6 +86,37 @@ const AddProperty = ({ onAddProperty }) => {
 									...newProperty,
 									contact: e.target.value
 								})} required />
+					</label>
+				</div>
+				<div className="form-row">
+					<label>Price:
+						<input type="number"
+							value={newProperty.price}
+							onChange={(e) =>
+								setNewProperty(
+									{
+										...newProperty,
+										price: e.target.value
+									})}
+							required />
+					</label>
+					<label>Type:
+						<select
+							value={newProperty.type}
+							onChange={(e) =>
+								setNewProperty(
+									{
+										...newProperty,
+										type: e.target.value
+									})}
+							required>
+							<option value="">Select Type</option>
+							<option value="Apartment">Apartment</option>
+							<option value="Villa">Villa</option>
+							<option value="Townhouse">Townhouse</option>
+							<option value="Cottage">Cottage</option>
+							<option value="Bungalow">Bungalow</option>
+						</select>
 					</label>
 				</div>
 				<button type="submit"

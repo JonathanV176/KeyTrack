@@ -141,10 +141,49 @@ f
   background-color: #0056b3;
 }
 
+/* Add styles for product items to appear as individual cards */
+.product-item {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  width: 300px;
+  background-color: #fff;
+  text-align: center;
+}
 
+.product-item img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
 
+.product-item button {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+}
 
+.product-item button:hover {
+  background-color: #0056b3;
+}
 
+/* Add styles for the product list to display items left to right */
+.item-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+  list-style: none;
+}
 
 /* AddProperty.css */
 .form-container {
