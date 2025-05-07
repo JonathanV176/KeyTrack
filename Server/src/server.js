@@ -1,5 +1,3 @@
-
-
 // Patches
 const {inject, errorHandler} = require('express-custom-error');
 inject(); // Patch express in order to use async / await syntax
@@ -56,8 +54,6 @@ app.use('*', (req, res, next) => {
 // Assign Routes
 
 app.use('/', require('./routes/router.js'));
-
-
 // Handle errors
 app.use(errorHandler());
 
